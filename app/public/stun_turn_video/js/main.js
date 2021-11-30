@@ -334,6 +334,7 @@ function guid(s='user') {
 
 window.onload = () => {
     console.log('pretty loaded!!');
+
     username = guid();//create random local username
     let urlName = getURLParameter("callid");//get call id if exists from url
     if(!!urlName) {
@@ -358,6 +359,13 @@ window.onload = () => {
             peer.forceTurn = checked;
         })
     }
+    let url = document.getElementById("callID").value;
+    console.log('AAAAAAAAAAAAAAAAAAAAAAA')
+    console.log(remoteCallID);
+    console.log('AAAAAAAAAAAAAAAAAAAAA')
+    new QRCode(document.getElementById("qrcode"), {
+        text: url
+    });
     //get Xirsys service
     doICE();
 };
